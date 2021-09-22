@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -10,6 +11,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
@@ -17,6 +22,10 @@ module.exports = {
             loader: 'babel-loader',
           },
         ],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
       },
       {
         test: /\.html$/,
