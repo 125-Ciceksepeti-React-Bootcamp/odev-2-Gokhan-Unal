@@ -11,6 +11,12 @@ module.exports = {
   module: {
     rules: [
       {
+        loader: 'eslint-loader',
+        options: {
+          eslintPath: 'eslint-config-airbnb-standard/node_modules/eslint',
+        },
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
